@@ -3,20 +3,22 @@ package com.tvn.dio.modelo;
 public class Conta {
     private int numero;
     private String nomeCliente;
-    private String agencia;
+    private String agencia; //cada banco tem uma agência, para este exercício foi considerado que o usuário saberá sua agência para diversificar os exemplos.
     private double saldo;
 
-    private static int NumeroContaDisponivel = 1;
+    private static int NumeroContaDisponivel = 0;
 
     {
-        System.out.println("Criando uma nova conta.");
+        // código default, será executado a cada criação de conta.
+        // o número aqui informado deve bater com o número da conta criada.
+        NumeroContaDisponivel++;
+        System.out.println("Criando uma nova conta = " + NumeroContaDisponivel);
     }
 
     public Conta(String nome, String agencia) {
         this.numero = NumeroContaDisponivel;
         this.nomeCliente = nome;
         this.agencia = agencia;
-        NumeroContaDisponivel++;
     }
 
     public Conta (String nome, String agencia, double depositoInicial) {
@@ -24,7 +26,6 @@ public class Conta {
         this.nomeCliente = nome;
         this.agencia = agencia;
         this.saldo = depositoInicial;
-        NumeroContaDisponivel++;
     }
 
     public int getNumero() {
